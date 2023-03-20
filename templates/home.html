@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Da Viz - Home
+        </title>
+        <link rel="stylesheet" href="{{url_for('static', filename='css/home.css')}}">
+    </head>
+    <body>
+        <div class="container">
+            <div class="table-container">
+                <h1 class="heading">Project List</h1>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Project Name</th>
+                            <th>#</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for project in projects %}
+                        <tr>
+                            <td data-label="id">{{ project.id }}</td>
+                            <td data-label="project-name">{{ project.name }}</td>
+                            <td data-label="#"><a href="{{url_for('dashboardlist', project_id = project.id )}}" class="btn">Dashboards</a></td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </body>
+</html>
